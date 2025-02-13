@@ -17,6 +17,7 @@ public abstract class Critter extends Creature {
             die();
         }
         foodEaten = 0;
+        foodNeed = 0.025 * size; // Override foodNeed variable to be size-dependent
     }
 
     public void eat(double food) {

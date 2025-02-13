@@ -2,6 +2,7 @@ package edu.guilford;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -54,6 +55,10 @@ public class Main {
         System.out.println("PlantEater Growth Rate: " + plantEater.getGrowthRate());
         System.out.println("");
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();
+
         // Test 2
         ArrayList<Plant> morePlants = new ArrayList<>();
         for (int i = 0; i < 300; i++) {
@@ -85,6 +90,10 @@ public class Main {
             }
 
             // Remove dead plantEaters
+            /*
+             * The index is increased each time through the loop, but if a plantEater is removed
+             * the same index is checked again since the whole list is shifted down one.
+             */
             int plantIndex = 0;
             while (plantIndex < morePlantEaters.size()) {
                 if (!morePlantEaters.get(plantIndex).isAlive()) {
@@ -102,6 +111,109 @@ public class Main {
             System.out.println("Total PlantEater Mass: " + totalMass(morePlantEaters));
             System.out.println("");
         }
+        /**
+         * The results of test 2 show that the ecosystem reaches an equilibrium where the planteaters
+         * and plants coexist. The number of plants and planteaters fluctuates around a certain number.
+        */
+
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();
+
+        // Test 3 (MeatEater)
+        System.out.println("");
+        System.out.println("MeatEater Test | 10 days");
+        MeatEater meatEater = new MeatEater(1000, 3, 50, morePlantEaters);
+        for (int i = 0; i < 10; i++) {
+            meatEater.simulateDay();
+
+            int plantIndex = 0;
+            while (plantIndex < morePlantEaters.size()) {
+                if (!morePlantEaters.get(plantIndex).isAlive()) {
+                    morePlantEaters.remove(plantIndex);
+                } else {
+                    plantIndex++;
+                }
+            }
+        }
+        System.out.println(meatEater.toString());
+
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();
+
+        // Test 4 (MeatEater and PlantEater)
+        ArrayList<MeatEater> mE = new ArrayList<>();
+        for (int i = 0; i < 0; i++) {
+            mE.add(new MeatEater(1000, 3, 50, morePlantEaters));
+        }
+        ArrayList<PlantEater> pE = new ArrayList<>();
+        for (int i = 0; i < 1; i++) {
+            pE.add(new PlantEater(1000, 3, 50, morePlants));
+        }
+        ArrayList<Plant> p = new ArrayList<>();
+        for (int i = 0; i < 500; i++) {
+            p.add(new Plant(250, 5));
+        }
+
+        for (int i = 0; i < 1000 && stillAlive(pE); i++) {
+            // 5% chance of adding a new plant
+            if (rand.nextDouble() <= 0.05) {
+                double plantSize = 250 + rand.nextDouble(100);
+                p.add(new Plant(plantSize, 5));
+            }
+            // 30% chance of adding a new plantEater
+            if (rand.nextDouble() <= 0.3) {
+                plantEaterSize = rand.nextDouble(200) + 900;
+                pE.add(new PlantEater(plantEaterSize, 3, 50, morePlants));
+            }
+            // // 30% chance of adding a new meatEater
+            // if (rand.nextDouble() <= 0.3) {
+            //     mE.add(new MeatEater(1000, 3, 50, morePlantEaters));
+            // }
+
+            // Simulate a day
+            for (PlantEater aPlanetEater : pE) {
+                aPlanetEater.simulateDay();
+            }
+            for (Plant aPlant : p) {
+                aPlant.simulateDay();
+            }
+            for (MeatEater aMeatEater : mE) {
+                aMeatEater.simulateDay();
+            }
+
+            // Remove dead plantEaters and meatEaters
+            /*
+             * The index is increased each time through the loop, but if a plantEater is removed
+             * the same index is checked again since the whole list is shifted down one.
+             */
+            int plantIndex = 0;
+            while (plantIndex < pE.size()) {
+                if (!pE.get(plantIndex).isAlive()) {
+                    pE.remove(plantIndex);
+                } else {
+                    plantIndex++;
+                }
+            }
+            int meatIndex = 0;
+            while (meatIndex < mE.size()) {
+                if (!mE.get(meatIndex).isAlive()) {
+                    mE.remove(meatIndex);
+                } else {
+                    meatIndex++;
+                }
+            }
+
+            // Print Data
+            System.out.println("Day " + (i + 1) + ":");
+            System.out.println("Number of Plants: " + p.size());
+            System.out.println("Number of PlantEaters: " + pE.size());
+            System.out.println("Number of MeatEaters: " + mE.size());
+            System.out.println("Total Plant Mass: " + totalMass(p));
+            System.out.println("Total PlantEater Mass: " + totalMass(pE));
+            System.out.println("Total MeatEater Mass: " + totalMass(mE));
+            System.out.println("");
+        }
+
     }
 
     public static boolean stillAlive(ArrayList<? extends Creature> creatures) {
