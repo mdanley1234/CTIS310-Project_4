@@ -3,6 +3,8 @@ package edu.guilford;
 import java.util.ArrayList;
 import java.util.Random;
 
+import edu.guilford.organisms.abstracts.Critter;
+
 public class MeatEater extends Critter {
 
     private ArrayList<PlantEater> plantEaterList;

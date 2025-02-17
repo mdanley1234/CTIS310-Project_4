@@ -1,4 +1,6 @@
-package edu.guilford;
+package edu.guilford.organisms;
+
+import edu.guilford.organisms.abstracts.Creature;
 
 public class Plant extends Creature {
     
