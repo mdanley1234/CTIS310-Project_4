@@ -19,6 +19,12 @@ public class PlantEater extends Critter {
         this.plantList = plantList;
     }
 
+    // Life span
+    @Override
+    public int getLifespan() {
+        return 200;
+    }
+
     /**
      * Chew on a plant
      * @param plant

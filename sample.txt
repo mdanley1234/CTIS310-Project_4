@@ -1,0 +1,217 @@
+Test 1
+Let us begin with 2000 plants and 1 plant eater in our ecosystem.
+
+
+Ecosystem {
+  days                = 0
+  plantsCount         = 2000
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 599158.05
+  totalPlantEaterMass = 880.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Let's try simulating 10 days. (Click Enter)
+
+Ecosystem {
+  days                = 1
+  plantsCount         = 2016
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 613886.84
+  totalPlantEaterMass = 885.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 2
+  plantsCount         = 2035
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 629627.08
+  totalPlantEaterMass = 890.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 3
+  plantsCount         = 2055
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 645996.66
+  totalPlantEaterMass = 895.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 4
+  plantsCount         = 2077
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 662859.02
+  totalPlantEaterMass = 900.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 5
+  plantsCount         = 2106
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 681669.20
+  totalPlantEaterMass = 905.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 6
+  plantsCount         = 2131
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 699607.62
+  totalPlantEaterMass = 910.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 7
+  plantsCount         = 2156
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 717694.12
+  totalPlantEaterMass = 915.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 8
+  plantsCount         = 2178
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 735163.99
+  totalPlantEaterMass = 920.04
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 9
+  plantsCount         = 2204
+  plantEatersCount    = 3
+  meatEatersCount     = 0
+  totalPlantMass      = 753720.18
+  totalPlantEaterMass = 2891.59
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Ecosystem {
+  days                = 10
+  plantsCount         = 2221
+  plantEatersCount    = 3
+  meatEatersCount     = 0
+  totalPlantMass      = 769787.26
+  totalPlantEaterMass = 2906.59
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Let's try simulating another 100 days.
+
+Ecosystem {
+  days                = 110
+  plantsCount         = 3692
+  plantEatersCount    = 324
+  meatEatersCount     = 0
+  totalPlantMass      = 1828352.31
+  totalPlantEaterMass = 353285.42
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Let's run a 1000 day simulation
+Ecosystem {
+  days                = 0
+  plantsCount         = 100
+  plantEatersCount    = 1
+  meatEatersCount     = 0
+  totalPlantMass      = 29885.89
+  totalPlantEaterMass = 1052.11
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+Results of 1000 day simulation.
+Ecosystem {
+  days                = 1000
+  plantsCount         = 322
+  plantEatersCount    = 125
+  meatEatersCount     = 0
+  totalPlantMass      = 11653.33
+  totalPlantEaterMass = 141499.33
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}
+
+Let's rerun the 1000 day simulation with meatEaters!
+Ecosystem {
+  days                = 0
+  plantsCount         = 1000
+  plantEatersCount    = 800
+  meatEatersCount     = 5
+  totalPlantMass      = 301276.70
+  totalPlantEaterMass = 802169.50
+  totalMeatEaterMass  = 9707.76
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = true
+}
+Results of 1000 day simulation.
+Ecosystem {
+  days                = 313
+  plantsCount         = 2058
+  plantEatersCount    = 465
+  meatEatersCount     = 0
+  totalPlantMass      = 17075.29
+  totalPlantEaterMass = 619215.29
+  totalMeatEaterMass  = 0.00
+  plantsStillAlive    = true
+  plantEatersAlive    = true
+  meatEatersAlive     = false
+}

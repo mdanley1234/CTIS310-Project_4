@@ -13,6 +13,12 @@ public class MeatEater extends Critter {
     private ArrayList<PlantEater> plantEaterList;
     private Random rand = new Random();
 
+    // Life span
+    @Override
+    public int getLifespan() {
+        return 500;
+    }
+
     // Set size, growthRate, foodNeedPercentage, and the list of plantEaters to be eaten
     public MeatEater(double size, double growthRate, double foodNeedPercentage, ArrayList<PlantEater> plantEaterList) {
         super(size, growthRate, foodNeedPercentage);

@@ -9,6 +9,9 @@ public abstract class Creature {
     protected double growthRate;        // Linear growth rate of the creature
     protected boolean alive = true;     // Whether the creature is alive
     protected int age = 0;              // Age of the creature (simulation days)
+    
+    // Life span method
+    public abstract int getLifespan();
 
     // Constructor to set size and growthRate of the creature
     public Creature(double size, double growthRate) {
@@ -33,6 +36,15 @@ public abstract class Creature {
     public void simulateDay() {
         changeSize(growthRate); // Increase size by growthRate
         age++;                  // Increase age by 1 
+
+        // Simulate lifespan
+        if (age > getLifespan()) {
+            double probabilityOfDeath = (age - getLifespan()) * 0.1; // Probability increases by 10% each day past lifespan
+            if (Math.random() < probabilityOfDeath) {
+            die();
+            }
+            die();
+        }
     }
 
     /**

@@ -8,6 +8,12 @@ public class Plant extends Creature {
         super(size, growthRate);
     }
 
+    // Life span
+    @Override
+    public int getLifespan() {
+        return 100;
+    }
+
     public void chewedOn(double eaten) {
         // If the plant is eaten more than its size, throw error
         if (eaten > size) {

@@ -7,7 +7,6 @@ import edu.guilford.organisms.MeatEater;
 import edu.guilford.organisms.Plant;
 import edu.guilford.organisms.PlantEater;
 import edu.guilford.organisms.abstracts.Creature;
-import edu.guilford.organisms.abstracts.Critter;
 
 public class Ecosystem {
 
@@ -30,7 +29,7 @@ public class Ecosystem {
     private double foodNeedPercentage = 0.025;      // Percentage of size that is needed for food
 
     // Birth Attributes
-    private double plantBirthRate = 0.0005; // 0.05% chance of each plant creating a new plant
+    private double plantBirthRate = 0.01; // 0.0005% chance of each plant creating a new plant
     private double plantEaterBirthRate = 0.05; // 5% chance of each plantEater creating a new plantEater
     private double meatEaterBirthRate = 0.05; // 5% chance of each meatEater creating a new meatEater
 
@@ -76,15 +75,16 @@ public class Ecosystem {
         for (Plant plant : plants) {
             plant.simulateDay();
         }
+        removeDeadCreatures(plants);
         for (PlantEater plantEater : plantEaters) {
             plantEater.simulateDay();
         }
-        removeDeadCritters(plantEaters);
+        removeDeadCreatures(plantEaters);
         for (MeatEater meatEater : meatEaters) {
             meatEater.simulateDay();
         }
-        removeDeadCritters(meatEaters);
-        removeDeadCritters(plantEaters);
+        removeDeadCreatures(meatEaters);
+        removeDeadCreatures(plantEaters);
 
         // Birth cycle (Add new plants, plantEaters, & meatEaters)
         simulateBirths();
@@ -92,11 +92,11 @@ public class Ecosystem {
     }
 
     // Check for dead organisms and remove
-    private void removeDeadCritters(ArrayList<? extends Critter> critters) {
+    private void removeDeadCreatures(ArrayList<? extends Creature> creatures) {
         int i = 0;
-        while (i < critters.size()) {
-            if (!critters.get(i).isAlive()) {
-                critters.remove(i);
+        while (i < creatures.size()) {
+            if (!creatures.get(i).isAlive()) {
+                creatures.remove(i);
             } else {
                 i++;
             }

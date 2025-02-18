@@ -70,27 +70,37 @@ public class Main {
            * The plantEater masses grow very big while the plant masses shrink from overconsumption
            */
 
+           // Test 3
+           /*
+            * This is the same as test 2 except we also add meatEaters
+            */
+            System.out.println("Let's rerun the 1000 day simulation with meatEaters!");
+            Ecosystem ecosystem3 = new Ecosystem();
+            ecosystem3.addPlants(1000);
+            ecosystem3.addPlantEaters(800);
+            ecosystem3.addMeatEaters(5);
+            System.out.println(ecosystem3.toString());
+            while (ecosystem3.getDays() < 1000 &&
+            !ecosystem3.getPlantEaters().isEmpty() &&
+            !ecosystem3.getMeatEaters().isEmpty()) {
+              ecosystem3.simulateDay();
+            }
+            System.out.println("Results of 1000 day simulation.");
+            System.out.println(ecosystem3.toString());
+            scan.nextLine();
+
+            /*
+             * Test 3 Conclusions:
+             * Unlike test 2, it is very difficult (if not impossible) to find a stable set for the system
+             * The test normally ends around day 100 with either all the meatEaters dead
+             * from unlucky chases or all the plantEaters dead from overconsumption by the meatEaters.
+             * I was unable to find a "good balance" since meatEaters end up killing the plantEaters
+             * making it much more important to have a more complicated birthing method.
+             */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // OLD TESTING PROGRAM
 
     //     System.out.println("Test 1");
     //     System.out.println("----------");
