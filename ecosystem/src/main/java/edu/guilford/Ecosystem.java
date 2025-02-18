@@ -8,6 +8,12 @@ import edu.guilford.organisms.Plant;
 import edu.guilford.organisms.PlantEater;
 import edu.guilford.organisms.abstracts.Creature;
 
+/*
+ * The Ecosystem class is holds lists of creature objects
+ * and the attributes that define them.
+ * It enables full simulation of the various organisms
+ * and other additional functionality.
+ */
 public class Ecosystem {
 
     // Arrays of organisms in the ecosystem
@@ -70,6 +76,9 @@ public class Ecosystem {
     }
 
     // Simulate a day
+    /**
+     * Simulates a day in the ecosystem
+     */
     public void simulateDay() {
         // Simulate organisms
         for (Plant plant : plants) {
@@ -91,7 +100,13 @@ public class Ecosystem {
         days++;
     }
 
-    // Check for dead organisms and remove
+    /**
+     * Checks for dead creatures in the provided creature ArrayList
+     * and removes them. It works by looping over the size of the array
+     * and removing creatures with the alive = false attribute.
+     * It only increments when an alive creature is found and ends when the list end is reached.
+     * @param creatures
+     */
     private void removeDeadCreatures(ArrayList<? extends Creature> creatures) {
         int i = 0;
         while (i < creatures.size()) {
@@ -184,6 +199,7 @@ public class Ecosystem {
         return false;
     }
 
+    // Checks the total mass of a list
     public static double totalMass(ArrayList<? extends Creature> creatures) {
         double total = 0;
         for (Creature creature : creatures) {
