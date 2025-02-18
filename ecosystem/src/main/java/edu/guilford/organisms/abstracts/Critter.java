@@ -17,9 +17,7 @@ public abstract class Critter extends Creature {
 
     // Simulate a day in the life of the Critter
     @Override
-    public void simulateDay() {
-        super.simulateDay();
-        
+    public void simulateDay() {        
         // Check if the Critter has eaten enough to survive
         if (foodEaten < calculateFoodNeeded()) {
             die();
@@ -27,6 +25,7 @@ public abstract class Critter extends Creature {
         
         // Reset daily food intake
         foodEaten = 0;
+        super.simulateDay();
     }
 
     // Calculate the amount of food needed for the day
@@ -42,7 +41,7 @@ public abstract class Critter extends Creature {
 
     // Determine how much more food is needed
     public double stillNeed() {
-        return calculateFoodNeeded() - foodEaten;
+        return Math.max(calculateFoodNeeded() - foodEaten, 0);
     }
 
     // Getters and setters

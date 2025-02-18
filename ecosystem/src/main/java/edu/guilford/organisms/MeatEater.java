@@ -1,20 +1,28 @@
-package edu.guilford;
+package edu.guilford.organisms;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import edu.guilford.organisms.abstracts.Critter;
 
+/**
+ * The meat eater selects a random subset of plantEaters to be eaten
+ */
 public class MeatEater extends Critter {
 
     private ArrayList<PlantEater> plantEaterList;
     private Random rand = new Random();
 
-    public MeatEater(double size, double growthRate, double foodNeed, ArrayList<PlantEater> plantEaterList) {
-        super(size, growthRate, foodNeed);
+    // Set size, growthRate, foodNeedPercentage, and the list of plantEaters to be eaten
+    public MeatEater(double size, double growthRate, double foodNeedPercentage, ArrayList<PlantEater> plantEaterList) {
+        super(size, growthRate, foodNeedPercentage);
         this.plantEaterList = plantEaterList;
     }
 
+    /**
+     * Chase a plantEater
+     * @param plantEater
+     */
     public void chase(PlantEater plantEater) {
         // 90% chance to catch the plantEater
         if (rand.nextDouble() < 0.90) {
@@ -24,11 +32,16 @@ public class MeatEater extends Critter {
         }
     }
 
+    /**
+     * The meat eater selects a random subset of plantEaters (1 or 2)
+     * to be eaten. The entire plantEater is eaten
+     */
     @Override
     public void simulateDay() {
         // Select a number 1 or 2
         int numberOfPlantEaters = rand.nextInt(2) + 1;
 
+        // Check if all plantEaters are dead
         if (!plantEaterList.isEmpty()) {
             for (int i = 0; i < numberOfPlantEaters; i++) {
                 int index = rand.nextInt(plantEaterList.size());
